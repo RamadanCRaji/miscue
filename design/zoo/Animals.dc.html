@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Andika, "Comic Neue", "Trebuchet MS", sans-serif; }
+    a { color: #0072B2; } a:hover { color: #005084; }
+    .pen__ground, .pen__fence { position:absolute; inset:0; width:100%; height:100%; }
+    .figure--ghost { opacity: .22; }
+    .figure--live, .figure__body { display: inline-block; }
+    .figure__body { transform-origin: 50% 100%; }
+    .figure--live .figure__body { animation: sway 5.6s ease-in-out 1.2s infinite; }
+    .figure--live .eye { transform-box: fill-box; transform-origin: center; animation: blink 6.5s ease-in-out infinite; }
+    .pen:nth-child(2) .figure__body { animation-delay: 2.3s; } .pen:nth-child(3) .figure__body { animation-delay: .4s; } .pen:nth-child(4) .figure__body { animation-delay: 3.1s; }
+    .pen:nth-child(2) .eye { animation-delay: 1.7s; } .pen:nth-child(3) .eye { animation-delay: 3.9s; } .pen:nth-child(4) .eye { animation-delay: .8s; }
+    .sheet .figure:nth-child(n) .figure__body { animation-delay: calc(var(--i, 0) * .9s); }
+    @keyframes sway { 0%,100% { transform: rotate(-1.3deg);} 50% { transform: rotate(1.3deg);} }
+    @keyframes blink { 0%,91%,100% { transform: scaleY(1);} 94% { transform: scaleY(.08);} 97% { transform: scaleY(1);} }
+    @media (prefers-reduced-motion: reduce) { .figure__body, .eye { animation: none; } }
+</style>
+</helmet>
+<div class="sheet" style="width:1560px;height:720px;background:#faf5ec;color:#22303a;padding:36px 40px;box-sizing:border-box;display:flex;flex-direction:column;gap:26px">
+  <div><div style="font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a6f61">Owned — 220px, with idle sway and blink</div>
+  <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:20px;margin-top:10px"><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:0"><span class="figure figure--live"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Lion"><path d="M52 40 q9 -3 8 -13" stroke="#D9862B" stroke-width="3" fill="none" stroke-linecap="round" />
+         <ellipse cx="60" cy="26" rx="3.4" ry="4.2" fill="#8A5A32" />
+         
+         <rect x="41" y="44" width="7" height="14" rx="3.5" fill="#D9862B" />
+         <ellipse cx="44.5" cy="58" rx="4.4" ry="2.2" fill="#C4762A" />
+         
+         <ellipse cx="37" cy="42" rx="18" ry="12" fill="#E9A23B" />
+         <ellipse cx="40" cy="47" rx="11" ry="6" fill="#F4C36A" />
+         
+         <rect x="24" y="45" width="7" height="13" rx="3.5" fill="#E9A23B" />
+         <rect x="32" y="46" width="7" height="12" rx="3.5" fill="#E9A23B" />
+         <ellipse cx="27.5" cy="58" rx="4.4" ry="2.2" fill="#D9862B" />
+         <ellipse cx="35.5" cy="58" rx="4.4" ry="2.2" fill="#D9862B" />
+         
+         <path
+            d="M22 6 l4 5 5 -4 2 6 6 -1 -1 6 6 2 -4 5 5 4 -6 3 3 6 -6 -1 0 6 -6 -3 -3 6 -4 -5 -6 3 0 -6 -6 1 3 -6 -6 -3 5 -4 -4 -5 6 -2 -1 -6 6 1 z"
+            fill="#B8651F"
+         />
+         <circle cx="23" cy="25" r="14" fill="#D9862B" />
+         
+         <circle cx="23" cy="26" r="10.5" fill="#F2B54D" />
+         <circle cx="14.5" cy="16.5" r="3.6" fill="#D9862B" />
+         <circle cx="31.5" cy="16.5" r="3.6" fill="#D9862B" />
+         <circle cx="14.5" cy="16.5" r="1.8" fill="#F4C36A" />
+         <circle cx="31.5" cy="16.5" r="1.8" fill="#F4C36A" />
+         
+         <circle class="eye" cx="19" cy="25" r="1.9" fill="#3B2F26" />
+         <circle class="eye" cx="27" cy="25" r="1.9" fill="#3B2F26" />
+         <ellipse cx="23" cy="31" rx="5.6" ry="4" fill="#FFE0B0" />
+         <path d="M23 28.5 l-2.4 2.2 h4.8 z" fill="#3B2F26" />
+         <path d="M23 30.7 v1.6 M20.6 33 q2.4 1.6 4.8 0" stroke="#3B2F26" stroke-width="1.2" fill="none" stroke-linecap="round" />
+         <path d="M14 30 l4 .6 M14 32.4 l4 -.4 M32 30 l-4 .6 M32 32.4 l-4 -.4" stroke="#B8651F" stroke-width=".9" stroke-linecap="round" /></svg></span></span><span style="font-size:18px;color:#5d5346">Lion</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:1"><span class="figure figure--live"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Elephant"><path d="M55 36 q5 5 2 12" stroke="#7F92A6" stroke-width="2.6" fill="none" stroke-linecap="round" />
+         
+         <rect x="40" y="44" width="8" height="14" rx="3.5" fill="#8DA0B4" />
+         <rect x="49" y="44" width="7" height="14" rx="3.5" fill="#7F92A6" />
+         
+         <ellipse cx="38" cy="38" rx="20" ry="14" fill="#9DB0C3" />
+         
+         <rect x="22" y="45" width="8" height="13" rx="3.5" fill="#9DB0C3" />
+         <rect x="31" y="46" width="8" height="12" rx="3.5" fill="#8DA0B4" />
+         <circle cx="24" cy="57.5" r="1.1" fill="#EDF1F5" />
+         <circle cx="27.5" cy="57.5" r="1.1" fill="#EDF1F5" />
+         <circle cx="33" cy="57.5" r="1.1" fill="#EDF1F5" />
+         <circle cx="36.5" cy="57.5" r="1.1" fill="#EDF1F5" />
+         
+         <circle cx="19" cy="30" r="12.5" fill="#A6B8CA" />
+         <ellipse cx="27" cy="29" rx="8.5" ry="11.5" fill="#7F92A6" />
+         <ellipse cx="27.5" cy="29" rx="5.5" ry="8.5" fill="#B9C6D5" />
+         <path
+            d="M10 37 q-5 6 -3 13 q1 4 5 4 q4 0 3 -4 q-3 -6 0 -11 z"
+            fill="#A6B8CA"
+         />
+         <path d="M8 46 q1 2 4 2" stroke="#7F92A6" stroke-width="1.2" fill="none" stroke-linecap="round" />
+         <path d="M14 39 q4 3 4 8" stroke="#F5F2E8" stroke-width="2.6" fill="none" stroke-linecap="round" />
+         <circle class="eye" cx="15" cy="27" r="1.9" fill="#3B2F26" />
+         <path d="M12 24 q2 -1.5 4 0" stroke="#3B2F26" stroke-width=".9" fill="none" stroke-linecap="round" /></svg></span></span><span style="font-size:18px;color:#5d5346">Elephant</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:2"><span class="figure figure--live"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Giraffe"><path d="M49 40 q6 3 6 10" stroke="#D9A23D" stroke-width="2.2" fill="none" stroke-linecap="round" />
+         <ellipse cx="55.5" cy="51" rx="2.2" ry="3" fill="#8A5A32" />
+         
+         <rect x="24" y="42" width="5" height="16" rx="2.5" fill="#D9A23D" />
+         <rect x="31" y="42" width="5" height="16" rx="2.5" fill="#F0C05A" />
+         <rect x="40" y="42" width="5" height="16" rx="2.5" fill="#D9A23D" />
+         <rect x="46" y="42" width="5" height="16" rx="2.5" fill="#F0C05A" />
+         <rect x="24" y="55" width="5" height="3" rx="1.2" fill="#8A5A32" />
+         <rect x="31" y="55" width="5" height="3" rx="1.2" fill="#8A5A32" />
+         <rect x="40" y="55" width="5" height="3" rx="1.2" fill="#8A5A32" />
+         <rect x="46" y="55" width="5" height="3" rx="1.2" fill="#8A5A32" />
+         
+         <ellipse cx="37" cy="40" rx="16" ry="9" fill="#F0C05A" />
+         
+         <path d="M25 40 q-5 -10 -6 -24 l9 -2 q-1 14 5 24 z" fill="#F0C05A" />
+         <path d="M19.5 15 q-1 12 4 23" stroke="#B9742E" stroke-width="2.4" fill="none" stroke-dasharray="2.2 2.2" stroke-linecap="round" />
+         
+         <ellipse cx="20" cy="11" rx="9.5" ry="6.5" fill="#F0C05A" />
+         <ellipse cx="12" cy="12.5" rx="4" ry="3" fill="#E3B24F" />
+         <rect x="19" y="1.5" width="2.6" height="6" rx="1.3" fill="#B9742E" />
+         <rect x="24.5" y="1.5" width="2.6" height="6" rx="1.3" fill="#B9742E" />
+         <circle cx="20.3" cy="1.8" r="1.8" fill="#8A5A32" />
+         <circle cx="25.8" cy="1.8" r="1.8" fill="#8A5A32" />
+         <ellipse cx="29" cy="8" rx="3.2" ry="2" fill="#E3B24F" transform="rotate(-25 29 8)" />
+         <circle class="eye" cx="15.5" cy="9.5" r="1.7" fill="#3B2F26" />
+         <circle cx="10.5" cy="13.5" r=".9" fill="#8A5A32" />
+         
+         <path d="M31 35 l5 -3 5 2 -1 5 -5 2 -4 -3 z" fill="#B9742E" />
+         <path d="M41 38 l4 -2 4 3 -2 4 -5 0 z" fill="#B9742E" />
+         <path d="M33 44 l4 -1 2 3 -3 2 -3 -1 z" fill="#B9742E" />
+         <path d="M22 26 l3 -1 2 3 -2 2 -3 -1 z" fill="#B9742E" />
+         <path d="M20 18 l3 -1 1 3 -3 1 z" fill="#B9742E" /></svg></span></span><span style="font-size:18px;color:#5d5346">Giraffe</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:3"><span class="figure figure--live"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Penguin"><ellipse cx="25" cy="57.5" rx="7" ry="3" fill="#F5A623" />
+         <ellipse cx="39" cy="57.5" rx="7" ry="3" fill="#F5A623" />
+         <path d="M20 57 h4 M23 57 h4 M34 57 h4 M37 57 h4" stroke="#D9862B" stroke-width="1" stroke-linecap="round" />
+         
+         <ellipse cx="32" cy="34" rx="17" ry="22" fill="#2F3A4A" />
+         <ellipse cx="32" cy="38" rx="11" ry="16" fill="#FFFDF5" />
+         
+         <ellipse cx="14" cy="35" rx="4.5" ry="12" fill="#232C39" transform="rotate(12 14 35)" />
+         <ellipse cx="50" cy="35" rx="4.5" ry="12" fill="#232C39" transform="rotate(-12 50 35)" />
+         
+         <ellipse cx="26.5" cy="24" rx="5" ry="5.5" fill="#FFFDF5" />
+         <ellipse cx="37.5" cy="24" rx="5" ry="5.5" fill="#FFFDF5" />
+         <circle class="eye" cx="27.5" cy="24" r="1.9" fill="#3B2F26" />
+         <circle class="eye" cx="36.5" cy="24" r="1.9" fill="#3B2F26" />
+         <circle cx="28.2" cy="23.3" r=".6" fill="#FFFDF5" />
+         <circle cx="37.2" cy="23.3" r=".6" fill="#FFFDF5" />
+         <path d="M32 28 l-4.5 3.5 h9 z" fill="#F5A623" />
+         <path d="M27.5 31.5 h9" stroke="#D9862B" stroke-width=".8" />
+         <ellipse cx="24" cy="30" rx="2.4" ry="1.4" fill="#F2A0A0" opacity=".55" />
+         <ellipse cx="40" cy="30" rx="2.4" ry="1.4" fill="#F2A0A0" opacity=".55" /></svg></span></span><span style="font-size:18px;color:#5d5346">Penguin</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:4"><span class="figure figure--live"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Turtle"><ellipse cx="20" cy="53" rx="6" ry="4" fill="#7BC98F" transform="rotate(-20 20 53)" />
+         <ellipse cx="46" cy="53" rx="6" ry="4" fill="#7BC98F" transform="rotate(20 46 53)" />
+         <path d="M52 44 q6 0 8 5" stroke="#7BC98F" stroke-width="3" fill="none" stroke-linecap="round" />
+         
+         <circle cx="13" cy="41" r="8" fill="#7BC98F" />
+         <circle class="eye" cx="10.5" cy="39" r="1.8" fill="#3B2F26" />
+         <path d="M8 44 q3 2.4 6.5 0" stroke="#3B2F26" stroke-width="1.2" fill="none" stroke-linecap="round" />
+         <circle cx="6.5" cy="41.5" r=".8" fill="#3E9A62" />
+         
+         <ellipse cx="34" cy="48" rx="23" ry="6" fill="#2F7B4C" />
+         <path d="M12 47 a22 18 0 0 1 44 0 z" fill="#3E9A62" />
+         <path d="M34 30 l7 4 -3 9 h-8 l-3 -9 z" fill="#7BC98F" />
+         <path d="M20 40 l6 -6 4 4 -3 9 h-6 z" fill="#5FB27A" />
+         <path d="M48 40 l-6 -6 -4 4 3 9 h6 z" fill="#5FB27A" />
+         <path d="M27 33 l7 -4 7 4" stroke="#2F7B4C" stroke-width="1.2" fill="none" />
+         <path d="M12 47 a22 18 0 0 1 44 0" fill="none" stroke="#2F7B4C" stroke-width="1.8" /></svg></span></span><span style="font-size:18px;color:#5d5346">Turtle</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:5"><span class="figure figure--live"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Monkey"><path d="M44 46 q13 0 12 -12 q-1 -6 -7 -5" stroke="#8A5A32" stroke-width="3" fill="none" stroke-linecap="round" />
+         
+         <ellipse cx="24" cy="55" rx="6" ry="3.2" fill="#8A5A32" />
+         <ellipse cx="40" cy="55" rx="6" ry="3.2" fill="#8A5A32" />
+         
+         <ellipse cx="32" cy="44" rx="13" ry="11" fill="#A9743F" />
+         <ellipse cx="32" cy="46" rx="8" ry="7" fill="#E8C9A8" />
+         
+         <path d="M20 40 q-6 6 -2 13" stroke="#A9743F" stroke-width="5" fill="none" stroke-linecap="round" />
+         <path d="M44 40 q6 6 2 13" stroke="#A9743F" stroke-width="5" fill="none" stroke-linecap="round" />
+         <circle cx="17" cy="53" r="2.6" fill="#8A5A32" />
+         <circle cx="47" cy="53" r="2.6" fill="#8A5A32" />
+         
+         <circle cx="18" cy="25" r="5.6" fill="#A9743F" />
+         <circle cx="46" cy="25" r="5.6" fill="#A9743F" />
+         <circle cx="18" cy="25" r="3" fill="#E8C9A8" />
+         <circle cx="46" cy="25" r="3" fill="#E8C9A8" />
+         <circle cx="32" cy="25" r="13.5" fill="#A9743F" />
+         <path d="M27 12 q2 -4 5 -1 q3 -3 5 1" stroke="#8A5A32" stroke-width="2" fill="none" stroke-linecap="round" />
+         <path d="M20 26 a12 9 0 0 0 24 0 a9 9 0 0 0 -24 0 z" fill="#F1D2B0" />
+         <circle class="eye" cx="27.5" cy="24" r="2" fill="#3B2F26" />
+         <circle class="eye" cx="36.5" cy="24" r="2" fill="#3B2F26" />
+         <ellipse cx="30" cy="29" rx="1.3" ry="1.8" fill="#7A4F2C" />
+         <ellipse cx="34" cy="29" rx="1.3" ry="1.8" fill="#7A4F2C" />
+         <path d="M27.5 32.5 q4.5 3.5 9 0" stroke="#7A4F2C" stroke-width="1.5" fill="none" stroke-linecap="round" /></svg></span></span><span style="font-size:18px;color:#5d5346">Monkey</span></div></div></div>
+  <div><div style="font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a6f61">Not yet — the same drawing at 22%, perfectly still</div>
+  <div style="display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:20px;margin-top:10px"><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:0"><span class="figure figure--ghost"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Lion"><path d="M52 40 q9 -3 8 -13" stroke="#D9862B" stroke-width="3" fill="none" stroke-linecap="round" />
+         <ellipse cx="60" cy="26" rx="3.4" ry="4.2" fill="#8A5A32" />
+         
+         <rect x="41" y="44" width="7" height="14" rx="3.5" fill="#D9862B" />
+         <ellipse cx="44.5" cy="58" rx="4.4" ry="2.2" fill="#C4762A" />
+         
+         <ellipse cx="37" cy="42" rx="18" ry="12" fill="#E9A23B" />
+         <ellipse cx="40" cy="47" rx="11" ry="6" fill="#F4C36A" />
+         
+         <rect x="24" y="45" width="7" height="13" rx="3.5" fill="#E9A23B" />
+         <rect x="32" y="46" width="7" height="12" rx="3.5" fill="#E9A23B" />
+         <ellipse cx="27.5" cy="58" rx="4.4" ry="2.2" fill="#D9862B" />
+         <ellipse cx="35.5" cy="58" rx="4.4" ry="2.2" fill="#D9862B" />
+         
+         <path
+            d="M22 6 l4 5 5 -4 2 6 6 -1 -1 6 6 2 -4 5 5 4 -6 3 3 6 -6 -1 0 6 -6 -3 -3 6 -4 -5 -6 3 0 -6 -6 1 3 -6 -6 -3 5 -4 -4 -5 6 -2 -1 -6 6 1 z"
+            fill="#B8651F"
+         />
+         <circle cx="23" cy="25" r="14" fill="#D9862B" />
+         
+         <circle cx="23" cy="26" r="10.5" fill="#F2B54D" />
+         <circle cx="14.5" cy="16.5" r="3.6" fill="#D9862B" />
+         <circle cx="31.5" cy="16.5" r="3.6" fill="#D9862B" />
+         <circle cx="14.5" cy="16.5" r="1.8" fill="#F4C36A" />
+         <circle cx="31.5" cy="16.5" r="1.8" fill="#F4C36A" />
+         
+         <circle class="eye" cx="19" cy="25" r="1.9" fill="#3B2F26" />
+         <circle class="eye" cx="27" cy="25" r="1.9" fill="#3B2F26" />
+         <ellipse cx="23" cy="31" rx="5.6" ry="4" fill="#FFE0B0" />
+         <path d="M23 28.5 l-2.4 2.2 h4.8 z" fill="#3B2F26" />
+         <path d="M23 30.7 v1.6 M20.6 33 q2.4 1.6 4.8 0" stroke="#3B2F26" stroke-width="1.2" fill="none" stroke-linecap="round" />
+         <path d="M14 30 l4 .6 M14 32.4 l4 -.4 M32 30 l-4 .6 M32 32.4 l-4 -.4" stroke="#B8651F" stroke-width=".9" stroke-linecap="round" /></svg></span></span><span style="font-size:18px;color:#5d5346">Lion · not yet</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:1"><span class="figure figure--ghost"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Elephant"><path d="M55 36 q5 5 2 12" stroke="#7F92A6" stroke-width="2.6" fill="none" stroke-linecap="round" />
+         
+         <rect x="40" y="44" width="8" height="14" rx="3.5" fill="#8DA0B4" />
+         <rect x="49" y="44" width="7" height="14" rx="3.5" fill="#7F92A6" />
+         
+         <ellipse cx="38" cy="38" rx="20" ry="14" fill="#9DB0C3" />
+         
+         <rect x="22" y="45" width="8" height="13" rx="3.5" fill="#9DB0C3" />
+         <rect x="31" y="46" width="8" height="12" rx="3.5" fill="#8DA0B4" />
+         <circle cx="24" cy="57.5" r="1.1" fill="#EDF1F5" />
+         <circle cx="27.5" cy="57.5" r="1.1" fill="#EDF1F5" />
+         <circle cx="33" cy="57.5" r="1.1" fill="#EDF1F5" />
+         <circle cx="36.5" cy="57.5" r="1.1" fill="#EDF1F5" />
+         
+         <circle cx="19" cy="30" r="12.5" fill="#A6B8CA" />
+         <ellipse cx="27" cy="29" rx="8.5" ry="11.5" fill="#7F92A6" />
+         <ellipse cx="27.5" cy="29" rx="5.5" ry="8.5" fill="#B9C6D5" />
+         <path
+            d="M10 37 q-5 6 -3 13 q1 4 5 4 q4 0 3 -4 q-3 -6 0 -11 z"
+            fill="#A6B8CA"
+         />
+         <path d="M8 46 q1 2 4 2" stroke="#7F92A6" stroke-width="1.2" fill="none" stroke-linecap="round" />
+         <path d="M14 39 q4 3 4 8" stroke="#F5F2E8" stroke-width="2.6" fill="none" stroke-linecap="round" />
+         <circle class="eye" cx="15" cy="27" r="1.9" fill="#3B2F26" />
+         <path d="M12 24 q2 -1.5 4 0" stroke="#3B2F26" stroke-width=".9" fill="none" stroke-linecap="round" /></svg></span></span><span style="font-size:18px;color:#5d5346">Elephant · not yet</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:2"><span class="figure figure--ghost"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Giraffe"><path d="M49 40 q6 3 6 10" stroke="#D9A23D" stroke-width="2.2" fill="none" stroke-linecap="round" />
+         <ellipse cx="55.5" cy="51" rx="2.2" ry="3" fill="#8A5A32" />
+         
+         <rect x="24" y="42" width="5" height="16" rx="2.5" fill="#D9A23D" />
+         <rect x="31" y="42" width="5" height="16" rx="2.5" fill="#F0C05A" />
+         <rect x="40" y="42" width="5" height="16" rx="2.5" fill="#D9A23D" />
+         <rect x="46" y="42" width="5" height="16" rx="2.5" fill="#F0C05A" />
+         <rect x="24" y="55" width="5" height="3" rx="1.2" fill="#8A5A32" />
+         <rect x="31" y="55" width="5" height="3" rx="1.2" fill="#8A5A32" />
+         <rect x="40" y="55" width="5" height="3" rx="1.2" fill="#8A5A32" />
+         <rect x="46" y="55" width="5" height="3" rx="1.2" fill="#8A5A32" />
+         
+         <ellipse cx="37" cy="40" rx="16" ry="9" fill="#F0C05A" />
+         
+         <path d="M25 40 q-5 -10 -6 -24 l9 -2 q-1 14 5 24 z" fill="#F0C05A" />
+         <path d="M19.5 15 q-1 12 4 23" stroke="#B9742E" stroke-width="2.4" fill="none" stroke-dasharray="2.2 2.2" stroke-linecap="round" />
+         
+         <ellipse cx="20" cy="11" rx="9.5" ry="6.5" fill="#F0C05A" />
+         <ellipse cx="12" cy="12.5" rx="4" ry="3" fill="#E3B24F" />
+         <rect x="19" y="1.5" width="2.6" height="6" rx="1.3" fill="#B9742E" />
+         <rect x="24.5" y="1.5" width="2.6" height="6" rx="1.3" fill="#B9742E" />
+         <circle cx="20.3" cy="1.8" r="1.8" fill="#8A5A32" />
+         <circle cx="25.8" cy="1.8" r="1.8" fill="#8A5A32" />
+         <ellipse cx="29" cy="8" rx="3.2" ry="2" fill="#E3B24F" transform="rotate(-25 29 8)" />
+         <circle class="eye" cx="15.5" cy="9.5" r="1.7" fill="#3B2F26" />
+         <circle cx="10.5" cy="13.5" r=".9" fill="#8A5A32" />
+         
+         <path d="M31 35 l5 -3 5 2 -1 5 -5 2 -4 -3 z" fill="#B9742E" />
+         <path d="M41 38 l4 -2 4 3 -2 4 -5 0 z" fill="#B9742E" />
+         <path d="M33 44 l4 -1 2 3 -3 2 -3 -1 z" fill="#B9742E" />
+         <path d="M22 26 l3 -1 2 3 -2 2 -3 -1 z" fill="#B9742E" />
+         <path d="M20 18 l3 -1 1 3 -3 1 z" fill="#B9742E" /></svg></span></span><span style="font-size:18px;color:#5d5346">Giraffe · not yet</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:3"><span class="figure figure--ghost"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Penguin"><ellipse cx="25" cy="57.5" rx="7" ry="3" fill="#F5A623" />
+         <ellipse cx="39" cy="57.5" rx="7" ry="3" fill="#F5A623" />
+         <path d="M20 57 h4 M23 57 h4 M34 57 h4 M37 57 h4" stroke="#D9862B" stroke-width="1" stroke-linecap="round" />
+         
+         <ellipse cx="32" cy="34" rx="17" ry="22" fill="#2F3A4A" />
+         <ellipse cx="32" cy="38" rx="11" ry="16" fill="#FFFDF5" />
+         
+         <ellipse cx="14" cy="35" rx="4.5" ry="12" fill="#232C39" transform="rotate(12 14 35)" />
+         <ellipse cx="50" cy="35" rx="4.5" ry="12" fill="#232C39" transform="rotate(-12 50 35)" />
+         
+         <ellipse cx="26.5" cy="24" rx="5" ry="5.5" fill="#FFFDF5" />
+         <ellipse cx="37.5" cy="24" rx="5" ry="5.5" fill="#FFFDF5" />
+         <circle class="eye" cx="27.5" cy="24" r="1.9" fill="#3B2F26" />
+         <circle class="eye" cx="36.5" cy="24" r="1.9" fill="#3B2F26" />
+         <circle cx="28.2" cy="23.3" r=".6" fill="#FFFDF5" />
+         <circle cx="37.2" cy="23.3" r=".6" fill="#FFFDF5" />
+         <path d="M32 28 l-4.5 3.5 h9 z" fill="#F5A623" />
+         <path d="M27.5 31.5 h9" stroke="#D9862B" stroke-width=".8" />
+         <ellipse cx="24" cy="30" rx="2.4" ry="1.4" fill="#F2A0A0" opacity=".55" />
+         <ellipse cx="40" cy="30" rx="2.4" ry="1.4" fill="#F2A0A0" opacity=".55" /></svg></span></span><span style="font-size:18px;color:#5d5346">Penguin · not yet</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:4"><span class="figure figure--ghost"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Turtle"><ellipse cx="20" cy="53" rx="6" ry="4" fill="#7BC98F" transform="rotate(-20 20 53)" />
+         <ellipse cx="46" cy="53" rx="6" ry="4" fill="#7BC98F" transform="rotate(20 46 53)" />
+         <path d="M52 44 q6 0 8 5" stroke="#7BC98F" stroke-width="3" fill="none" stroke-linecap="round" />
+         
+         <circle cx="13" cy="41" r="8" fill="#7BC98F" />
+         <circle class="eye" cx="10.5" cy="39" r="1.8" fill="#3B2F26" />
+         <path d="M8 44 q3 2.4 6.5 0" stroke="#3B2F26" stroke-width="1.2" fill="none" stroke-linecap="round" />
+         <circle cx="6.5" cy="41.5" r=".8" fill="#3E9A62" />
+         
+         <ellipse cx="34" cy="48" rx="23" ry="6" fill="#2F7B4C" />
+         <path d="M12 47 a22 18 0 0 1 44 0 z" fill="#3E9A62" />
+         <path d="M34 30 l7 4 -3 9 h-8 l-3 -9 z" fill="#7BC98F" />
+         <path d="M20 40 l6 -6 4 4 -3 9 h-6 z" fill="#5FB27A" />
+         <path d="M48 40 l-6 -6 -4 4 3 9 h6 z" fill="#5FB27A" />
+         <path d="M27 33 l7 -4 7 4" stroke="#2F7B4C" stroke-width="1.2" fill="none" />
+         <path d="M12 47 a22 18 0 0 1 44 0" fill="none" stroke="#2F7B4C" stroke-width="1.8" /></svg></span></span><span style="font-size:18px;color:#5d5346">Turtle · not yet</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;--i:5"><span class="figure figure--ghost"><span class="figure__body"><svg width="220" height="220" viewBox="0 0 64 64" role="img" aria-label="Monkey"><path d="M44 46 q13 0 12 -12 q-1 -6 -7 -5" stroke="#8A5A32" stroke-width="3" fill="none" stroke-linecap="round" />
+         
+         <ellipse cx="24" cy="55" rx="6" ry="3.2" fill="#8A5A32" />
+         <ellipse cx="40" cy="55" rx="6" ry="3.2" fill="#8A5A32" />
+         
+         <ellipse cx="32" cy="44" rx="13" ry="11" fill="#A9743F" />
+         <ellipse cx="32" cy="46" rx="8" ry="7" fill="#E8C9A8" />
+         
+         <path d="M20 40 q-6 6 -2 13" stroke="#A9743F" stroke-width="5" fill="none" stroke-linecap="round" />
+         <path d="M44 40 q6 6 2 13" stroke="#A9743F" stroke-width="5" fill="none" stroke-linecap="round" />
+         <circle cx="17" cy="53" r="2.6" fill="#8A5A32" />
+         <circle cx="47" cy="53" r="2.6" fill="#8A5A32" />
+         
+         <circle cx="18" cy="25" r="5.6" fill="#A9743F" />
+         <circle cx="46" cy="25" r="5.6" fill="#A9743F" />
+         <circle cx="18" cy="25" r="3" fill="#E8C9A8" />
+         <circle cx="46" cy="25" r="3" fill="#E8C9A8" />
+         <circle cx="32" cy="25" r="13.5" fill="#A9743F" />
+         <path d="M27 12 q2 -4 5 -1 q3 -3 5 1" stroke="#8A5A32" stroke-width="2" fill="none" stroke-linecap="round" />
+         <path d="M20 26 a12 9 0 0 0 24 0 a9 9 0 0 0 -24 0 z" fill="#F1D2B0" />
+         <circle class="eye" cx="27.5" cy="24" r="2" fill="#3B2F26" />
+         <circle class="eye" cx="36.5" cy="24" r="2" fill="#3B2F26" />
+         <ellipse cx="30" cy="29" rx="1.3" ry="1.8" fill="#7A4F2C" />
+         <ellipse cx="34" cy="29" rx="1.3" ry="1.8" fill="#7A4F2C" />
+         <path d="M27.5 32.5 q4.5 3.5 9 0" stroke="#7A4F2C" stroke-width="1.5" fill="none" stroke-linecap="round" /></svg></span></span><span style="font-size:18px;color:#5d5346">Monkey · not yet</span></div></div></div>
+</div>
+</x-dc>
+</body>
+</html>

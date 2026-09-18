@@ -1,0 +1,1747 @@
+{
+   "updatedAt": "2026-09-17T23:18:38.081Z",
+   "source": {
+      "candidatesFile": "scripts/candidates.json",
+      "generatedAt": "2026-09-15T01:19:56.796Z",
+      "model": "claude-opus-5"
+   },
+   "notes": [
+      "Machine and human rejections are counted separately. The human-rejection count is the meaningful number: it measures what is structurally valid but pedagogically wrong, which no validator can catch.",
+      "Zero machine rejections: 30 of 30 candidates passed validateItem, a 100% pass rate. That reflects the constrained schema, not item quality. Generation uses structured outputs: misconceptionId is an enum of the real ids, so rule 6 cannot break; vowelSound is restricted to the vocabulary; options are exactly three, so rule 1 cannot break; and track, source and audio are fixed by the script. The remaining hard rules are stated in the prompt, and rule 11 is met because the script attaches inherited advice rather than the model writing any. None of this checks whether a vowel tag is true or an item teaches well, so a clean machine pass says nothing about pedagogy.",
+      "The teacher rejected 10 candidate(s). 7 of those were then revised by hand to her instructions and kept, leaving 3 still rejected. \"Caught by a human\" is 10, not 3: the rejection is what the validator missed, and the revision is what her reason made possible. Original reasons are in each entry's history."
+   ],
+   "summary": {
+      "candidatesGenerated": 30,
+      "generationBatchErrors": 0,
+      "machine": {
+         "rejected": 0,
+         "passRate": "100%",
+         "malformed": 0,
+         "failedPerRule": {}
+      },
+      "passedToHuman": 30,
+      "human": {
+         "rejected": 3,
+         "approved": 27,
+         "pendingApproved": 0,
+         "pending": 0,
+         "rejectedAtLeastOnce": 10,
+         "revisedAfterRejection": 7,
+         "passRate": "90%"
+      }
+   },
+   "entries": [
+      {
+         "candidateId": "gen-cake-1",
+         "requestedMisconception": "closed-syllable",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:46.885Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-cake-1",
+            "target": "cake",
+            "targetVowelSpelling": "a_e",
+            "targetVowelSound": "long-a",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "cat",
+                  "vowelSpelling": "a",
+                  "vowelSound": "short-a",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"cat\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in cat. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Band, fan, swam"
+               },
+               {
+                  "word": "train",
+                  "vowelSpelling": "ai",
+                  "vowelSound": "long-a",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "said",
+                  "vowelSpelling": "ai",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Play a game of tic tac toe. Create a 3 by 3 chart and write the word said in several boxes along with decodable words such as sad and sack. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'said' for your child to mark."
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-feet-1",
+         "requestedMisconception": "closed-syllable",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T01:11:18.339Z"
+         },
+         "history": [
+            {
+               "decision": "rejected",
+               "reason": "head is tricky, replace with eight",
+               "decidedAt": "2026-09-16T00:29:45.805Z"
+            }
+         ],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-feet-1",
+            "target": "feet",
+            "targetVowelSpelling": "ee",
+            "targetVowelSound": "long-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "fed",
+                  "vowelSpelling": "e",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"fed\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in fed. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Nest, bed, leg"
+               },
+               {
+                  "word": "vein",
+                  "vowelSpelling": "ei",
+                  "vowelSound": "long-a",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an EI word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Vein → Back: drawing of the key symbol. Front: Feet → Back: drawing of the key symbol. Front: Each → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "each",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-light-1",
+         "requestedMisconception": "closed-syllable",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:47.040Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-light-1",
+            "target": "light",
+            "targetVowelSpelling": "igh",
+            "targetVowelSound": "long-i",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "lick",
+                  "vowelSpelling": "i",
+                  "vowelSound": "short-i",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"lick\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in lick. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Hit, pit, skin"
+               },
+               {
+                  "word": "tie",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-i",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "chief",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ie-two-sounds",
+                  "parentAdvice": "Your child needs to learn the two sounds that ie make and when they make them. Teach your child that ie says I when they are the last letters in a one syllable word. ie says E when it is inside or in the middle of a word. Write a few words on index cards and hide them around the room. Have your child look for each word and when they find them ask them to read the word. Ask them what are the two sounds that ie can say and once they answer ask them which sound is in this word and if they need help remind them of the rule. Practice with: Chief, tie, green"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-moon-1",
+         "requestedMisconception": "closed-syllable",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:47.192Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-moon-1",
+            "target": "moon",
+            "targetVowelSpelling": "oo",
+            "targetVowelSound": "oo-long",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "mop",
+                  "vowelSpelling": "o",
+                  "vowelSound": "short-o",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"mop\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in mop. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Rod, shot, chop"
+               },
+               {
+                  "word": "book",
+                  "vowelSpelling": "oo",
+                  "vowelSound": "oo-short",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an OO word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Book → Back: drawing of the key symbol. Front: Moon → Back: drawing of the key symbol. Front: Blue → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "blue",
+                  "vowelSpelling": "ue",
+                  "vowelSound": "oo-long",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-cube-1",
+         "requestedMisconception": "closed-syllable",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:47.345Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-cube-1",
+            "target": "cube",
+            "targetVowelSpelling": "u_e",
+            "targetVowelSound": "long-u",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "cub",
+                  "vowelSpelling": "u",
+                  "vowelSound": "short-u",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"cub\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in cub. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Bud, shut, nut"
+               },
+               {
+                  "word": "few",
+                  "vowelSpelling": "ew",
+                  "vowelSound": "long-u",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "put",
+                  "vowelSpelling": "u",
+                  "vowelSound": "oo-short",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Play a game of tic tac toe. Create a 3 by 3 chart and write the word put in several boxes along with decodable words such as pup and push. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'put' for your child to mark."
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-cow-1",
+         "requestedMisconception": "closed-syllable",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:47.495Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-cow-1",
+            "target": "cow",
+            "targetVowelSpelling": "ow",
+            "targetVowelSound": "ow",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "cot",
+                  "vowelSpelling": "o",
+                  "vowelSound": "short-o",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"cot\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in cot. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Top, dot, shop"
+               },
+               {
+                  "word": "low",
+                  "vowelSpelling": "ow",
+                  "vowelSound": "long-o",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an OW word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Cow → Back: drawing of the key symbol. Front: Low → Back: drawing of the key symbol. Front: Out → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "out",
+                  "vowelSpelling": "ou",
+                  "vowelSound": "ow",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-book-1",
+         "requestedMisconception": "vowel-team-assumed",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:47.648Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-book-1",
+            "target": "book",
+            "targetVowelSpelling": "oo",
+            "targetVowelSound": "oo-short",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "boot",
+                  "vowelSpelling": "oo",
+                  "vowelSound": "oo-long",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an OO word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Book → Back: drawing of the key symbol. Front: Boot → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "box",
+                  "vowelSpelling": "o",
+                  "vowelSound": "short-o",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"box\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in box. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Fox, tock, drop"
+               },
+               {
+                  "word": "put",
+                  "vowelSpelling": "u",
+                  "vowelSound": "oo-short",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-head-1",
+         "requestedMisconception": "vowel-team-assumed",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:47.800Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-head-1",
+            "target": "head",
+            "targetVowelSpelling": "ea",
+            "targetVowelSound": "short-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "heat",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an EA word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Heat → Back: drawing of the key symbol. Front: Head → Back: drawing of the key symbol. Front: Break → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "red",
+                  "vowelSpelling": "e",
+                  "vowelSound": "short-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "break",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-a",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-steak-1",
+         "requestedMisconception": "vowel-team-assumed",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:47.952Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-steak-1",
+            "target": "steak",
+            "targetVowelSpelling": "ea",
+            "targetVowelSound": "long-a",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "stream",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an EA word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Stream → Back: drawing of the key symbol. Front: Steak → Back: drawing of the key symbol. Front: Spread → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "gate",
+                  "vowelSpelling": "a_e",
+                  "vowelSound": "long-a",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "spread",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-soup-1",
+         "requestedMisconception": "vowel-team-assumed",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:48.104Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-soup-1",
+            "target": "soup",
+            "targetVowelSpelling": "ou",
+            "targetVowelSound": "oo-long",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "loud",
+                  "vowelSpelling": "ou",
+                  "vowelSound": "ow",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an OU word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Loud → Back: drawing of the key symbol. Front: Soup → Back: drawing of the key symbol. Front: Moon → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "moon",
+                  "vowelSpelling": "oo",
+                  "vowelSound": "oo-long",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "sock",
+                  "vowelSpelling": "o",
+                  "vowelSound": "short-o",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"sock\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in sock. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Shock, rock, lot"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-chief-1",
+         "requestedMisconception": "vowel-team-assumed",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:48.256Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-chief-1",
+            "target": "chief",
+            "targetVowelSpelling": "ie",
+            "targetVowelSound": "long-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "tie",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-i",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an IE word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Tie → Back: drawing of the key symbol. Front: Sky → Back: drawing of the key symbol. Front: Chief → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "chin",
+                  "vowelSpelling": "i",
+                  "vowelSound": "short-i",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"chin\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in chin. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Shin, kit, mint"
+               },
+               {
+                  "word": "green",
+                  "vowelSpelling": "ee",
+                  "vowelSound": "long-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-cow-2",
+         "requestedMisconception": "vowel-team-assumed",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T01:11:18.483Z"
+         },
+         "history": [
+            {
+               "decision": "rejected",
+               "reason": "cow already used as a target, change to plow",
+               "decidedAt": "2026-09-16T00:29:45.961Z"
+            }
+         ],
+         "reviewerNotes": [
+            {
+               "note": "Reviewed cot and kept it as is: the item tests the vowel rather than the look-alike.",
+               "at": "2026-09-16T01:19:27.629Z"
+            }
+         ],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-cow-2",
+            "target": "plow",
+            "targetVowelSpelling": "ow",
+            "targetVowelSound": "ow",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "blow",
+                  "vowelSpelling": "ow",
+                  "vowelSound": "long-o",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an OW word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Cow → Back: drawing of the key symbol. Front: Blow → Back: drawing of the key symbol. Front: Cloud → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "cloud",
+                  "vowelSpelling": "ou",
+                  "vowelSound": "ow",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "cot",
+                  "vowelSpelling": "o",
+                  "vowelSound": "short-o",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"cot\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in cot. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Top, dot, shop"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-team-1",
+         "requestedMisconception": "ea-three-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T01:11:18.630Z"
+         },
+         "history": [
+            {
+               "decision": "rejected",
+               "reason": "ten already used, change to hen",
+               "decidedAt": "2026-09-16T00:29:46.112Z"
+            }
+         ],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-team-1",
+            "target": "team",
+            "targetVowelSpelling": "ea",
+            "targetVowelSound": "long-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "sheep",
+                  "vowelSpelling": "ee",
+                  "vowelSound": "long-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "head",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               },
+               {
+                  "word": "hen",
+                  "vowelSpelling": "e",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"hen\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in hen. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Jet, then, neck"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-sweat-1",
+         "requestedMisconception": "ea-three-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:48.413Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-sweat-1",
+            "target": "sweat",
+            "targetVowelSpelling": "ea",
+            "targetVowelSound": "short-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "speak",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               },
+               {
+                  "word": "web",
+                  "vowelSpelling": "e",
+                  "vowelSound": "short-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "sweet",
+                  "vowelSpelling": "ee",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an EE word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Sweet → Back: drawing of the key symbol. Front: Sweat → Back: drawing of the key symbol. Front: Speak → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-break-1",
+         "requestedMisconception": "ea-three-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:48.567Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-break-1",
+            "target": "break",
+            "targetVowelSpelling": "ea",
+            "targetVowelSound": "long-a",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "breath",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               },
+               {
+                  "word": "snail",
+                  "vowelSpelling": "ai",
+                  "vowelSound": "long-a",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "brag",
+                  "vowelSpelling": "a",
+                  "vowelSound": "short-a",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"brag\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in brag. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Tap, nap, dad"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-sleep-1",
+         "requestedMisconception": "ea-three-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:48.722Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-sleep-1",
+            "target": "sleep",
+            "targetVowelSpelling": "ee",
+            "targetVowelSound": "long-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "sled",
+                  "vowelSpelling": "e",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"sled\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in sled. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Check, send, wet"
+               },
+               {
+                  "word": "beast",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "spread",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-play-1",
+         "requestedMisconception": "ea-three-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T01:11:18.787Z"
+         },
+         "history": [
+            {
+               "decision": "rejected",
+               "reason": "cake already used, change to gate",
+               "decidedAt": "2026-09-16T00:29:46.263Z"
+            }
+         ],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-play-1",
+            "target": "play",
+            "targetVowelSpelling": "ay",
+            "targetVowelSound": "long-a",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "gate",
+                  "vowelSpelling": "a_e",
+                  "vowelSound": "long-a",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "dream",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               },
+               {
+                  "word": "plan",
+                  "vowelSpelling": "a",
+                  "vowelSound": "short-a",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"plan\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in plan. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Land, camp, can"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-earth-1",
+         "requestedMisconception": "ea-three-sounds",
+         "stage": "human-rejected",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "rejected",
+            "reason": "earth cannot be an ea question, ea is not making any of the three sounds students learn",
+            "decidedAt": "2026-09-16T00:29:45.340Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [
+            "eat",
+            "deaf"
+         ],
+         "item": {
+            "id": "gen-earth-1",
+            "target": "earth",
+            "targetVowelSpelling": "ear",
+            "targetVowelSound": "r-controlled",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "eat",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds.",
+                  "parentAdviceInherited": true
+               },
+               {
+                  "word": "her",
+                  "vowelSpelling": "er",
+                  "vowelSound": "r-controlled",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "deaf",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds.",
+                  "parentAdviceInherited": true
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-cake-2",
+         "requestedMisconception": "irregular-word",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:49.183Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-cake-2",
+            "target": "cake",
+            "targetVowelSpelling": "a_e",
+            "targetVowelSound": "long-a",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "have",
+                  "vowelSpelling": "a_e",
+                  "vowelSound": "short-a",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Your child will expect the a to say its long sound because of the e at the end, but \"have\" says the short a sound. Play a game of tic tac toe. Create 3 by 3 chart and write the word have in several boxes along with decodable words such as had and hat. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'have' for your child to mark."
+               },
+               {
+                  "word": "play",
+                  "vowelSpelling": "ay",
+                  "vowelSound": "long-a",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "cat",
+                  "vowelSpelling": "a",
+                  "vowelSound": "short-a",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"cat\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in cat. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Band, fan, swam"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-seed-1",
+         "requestedMisconception": "irregular-word",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:49.337Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-seed-1",
+            "target": "seed",
+            "targetVowelSpelling": "ee",
+            "targetVowelSound": "long-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "been",
+                  "vowelSpelling": "ee",
+                  "vowelSound": "short-i",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Play a game of tic tac toe. Create a 3 by 3 chart and write the word been in several boxes along with decodable words such as beg and bent. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'been' for your child to mark."
+               },
+               {
+                  "word": "meat",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "head",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-rope-1",
+         "requestedMisconception": "irregular-word",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:49.497Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-rope-1",
+            "target": "rope",
+            "targetVowelSpelling": "o_e",
+            "targetVowelSound": "long-o",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "come",
+                  "vowelSpelling": "o_e",
+                  "vowelSound": "short-u",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Play a game of tic tac toe. Create a 3 by 3 chart and write the word come in several boxes along with decodable words such as cop and cot. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'come' for your child to mark."
+               },
+               {
+                  "word": "rob",
+                  "vowelSpelling": "o",
+                  "vowelSound": "short-o",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"rob\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in rob. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Prop, bot, dog"
+               },
+               {
+                  "word": "glow",
+                  "vowelSpelling": "ow",
+                  "vowelSound": "long-o",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-find-1",
+         "requestedMisconception": "irregular-word",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:49.654Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-find-1",
+            "target": "find",
+            "targetVowelSpelling": "i",
+            "targetVowelSound": "long-i",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "give",
+                  "vowelSpelling": "i_e",
+                  "vowelSound": "short-i",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Play a game of tic tac toe. Create a 3 by 3 chart and write the word give in several boxes along with decodable words such as gig and gift. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'give' for your child to mark."
+               },
+               {
+                  "word": "fin",
+                  "vowelSpelling": "i",
+                  "vowelSound": "short-i",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"fin\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in fin. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Bin, chip, thin"
+               },
+               {
+                  "word": "mine",
+                  "vowelSpelling": "i_e",
+                  "vowelSound": "long-i",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-touch-1",
+         "requestedMisconception": "irregular-word",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:49.806Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-touch-1",
+            "target": "touch",
+            "targetVowelSpelling": "ou",
+            "targetVowelSound": "short-u",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "could",
+                  "vowelSpelling": "ou",
+                  "vowelSound": "oo-short",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Play a game of tic tac toe. Create a 3 by 3 chart and write the word could in several boxes along with decodable words such as cob and cod. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'could' for your child to mark."
+               },
+               {
+                  "word": "soup",
+                  "vowelSpelling": "ou",
+                  "vowelSound": "oo-long",
+                  "correct": false,
+                  "misconceptionId": "vowel-team-assumed",
+                  "parentAdvice": "Create index cards with an OU word on the front. On the back, draw a key symbol (that the child picks as a clue image for them). Front: Loud → Back: drawing of the key symbol. Front: Soup → Back: drawing of the key symbol. Front: Moon → Back: drawing of the key symbol. Have the child look at the front, try to read it, and flip it over to self-correct. Group the cards they miss into a \"try again\" pile."
+               },
+               {
+                  "word": "jump",
+                  "vowelSpelling": "u",
+                  "vowelSound": "short-u",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-head-2",
+         "requestedMisconception": "irregular-word",
+         "stage": "human-rejected",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "rejected",
+            "reason": "head overused",
+            "decidedAt": "2026-09-16T00:29:45.492Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [
+            "been",
+            "beach"
+         ],
+         "item": {
+            "id": "gen-head-2",
+            "target": "head",
+            "targetVowelSpelling": "ea",
+            "targetVowelSound": "short-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "been",
+                  "vowelSpelling": "ee",
+                  "vowelSound": "short-i",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as it does not follow the silent e rule. Your child will expect the o to say its long sound because of the e at the end, but \"gone\" says the short o sound. Play a game of tic tac toe. Create a 3 by 3 chart and write the word gone in several boxes along with decodable words such as got and hop. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'gone' for your child to mark.",
+                  "parentAdviceInherited": true
+               },
+               {
+                  "word": "beach",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds.",
+                  "parentAdviceInherited": true
+               },
+               {
+                  "word": "sled",
+                  "vowelSpelling": "e",
+                  "vowelSound": "short-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-tie-1",
+         "requestedMisconception": "ie-two-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:48.878Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-tie-1",
+            "target": "tie",
+            "targetVowelSpelling": "ie",
+            "targetVowelSound": "long-i",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "sky",
+                  "vowelSpelling": "y",
+                  "vowelSound": "long-i",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "chief",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ie-two-sounds",
+                  "parentAdvice": "Your child needs to learn the two sounds that ie make and when they make them. Teach your child that ie says I when they are the last letters in a one syllable word. ie says E when it is inside or in the middle of a word. Write a few words on index cards and hide them around the room. Have your child look for each word and when they find them ask them to read the word. Ask them what are the two sounds that ie can say and once they answer ask them which sound is in this word and if they need help remind them of the rule. Practice with: Chief, tie, green"
+               },
+               {
+                  "word": "tin",
+                  "vowelSpelling": "i",
+                  "vowelSound": "short-i",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"tin\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in tin. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Dip, him, mix"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-field-1",
+         "requestedMisconception": "ie-two-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T01:11:18.935Z"
+         },
+         "history": [
+            {
+               "decision": "rejected",
+               "reason": "fries to friend",
+               "decidedAt": "2026-09-16T00:29:46.425Z"
+            }
+         ],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-field-1",
+            "target": "field",
+            "targetVowelSpelling": "ie",
+            "targetVowelSound": "long-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "friend",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Play a game of tic tac toe. Create a 3 by 3 chart and write the word friend in several boxes along with decodable words such as frog and fresh. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'friend' for your child to mark."
+               },
+               {
+                  "word": "green",
+                  "vowelSpelling": "ee",
+                  "vowelSound": "long-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "fed",
+                  "vowelSpelling": "e",
+                  "vowelSound": "short-e",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"fed\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in fed. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Nest, bed, leg"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-toast-1",
+         "requestedMisconception": "ie-two-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T01:11:19.079Z"
+         },
+         "history": [
+            {
+               "decision": "rejected",
+               "reason": "tied to could",
+               "decidedAt": "2026-09-16T00:29:46.580Z"
+            }
+         ],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-toast-1",
+            "target": "toast",
+            "targetVowelSpelling": "oa",
+            "targetVowelSound": "long-o",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "could",
+                  "vowelSpelling": "ou",
+                  "vowelSound": "oo-short",
+                  "correct": false,
+                  "misconceptionId": "irregular-word",
+                  "parentAdvice": "Your child will need to memorize this word as they cannot decode it. Play a game of tic tac toe. Create a 3 by 3 chart and write the word could in several boxes along with decodable words such as cob and cod. You and your child will go back and forth reading a word and marking either an X or O over it. Hint: leave the word 'could' for your child to mark."
+               },
+               {
+                  "word": "top",
+                  "vowelSpelling": "o",
+                  "vowelSound": "short-o",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"top\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in top. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Pod, block, blob"
+               },
+               {
+                  "word": "grow",
+                  "vowelSpelling": "ow",
+                  "vowelSound": "long-o",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-night-1",
+         "requestedMisconception": "ie-two-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T00:29:49.032Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-night-1",
+            "target": "night",
+            "targetVowelSpelling": "igh",
+            "targetVowelSound": "long-i",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "niece",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ie-two-sounds",
+                  "parentAdvice": "Your child needs to learn the two sounds that ie make and when they make them. Teach your child that ie says I when they are the last letters in a one syllable word. ie says E when it is inside or in the middle of a word. Write a few words on index cards and hide them around the room. Have your child look for each word and when they find them ask them to read the word. Ask them what are the two sounds that ie can say and once they answer ask them which sound is in this word and if they need help remind them of the rule. Practice with: Niece, night, lie"
+               },
+               {
+                  "word": "lie",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-i",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "nip",
+                  "vowelSpelling": "i",
+                  "vowelSound": "short-i",
+                  "correct": false,
+                  "misconceptionId": "closed-syllable",
+                  "parentAdvice": "Remind your child of when a short vowel sound is used compared to the long vowel sound. Write the word \"nip\" on a piece of paper. Have your child identify if each letter is a consonant or vowel. Once your child confirms have them write a \"c\" or a \"v\" under each letter in nip. Ask your child to point to the vowel, then ask them does a vowel or consonant come after the vowel in the word. Once they respond with a consonant, remind them that if there is a consonant after a vowel in a one syllable word then the vowel will say its short sound. Have the child read the word. Practice with: Fin, ship, whip"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-head-3",
+         "requestedMisconception": "ie-two-sounds",
+         "stage": "approved",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "approved",
+            "reason": null,
+            "decidedAt": "2026-09-16T01:11:19.223Z"
+         },
+         "history": [
+            {
+               "decision": "rejected",
+               "reason": "head to health",
+               "decidedAt": "2026-09-16T00:29:46.734Z"
+            }
+         ],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [],
+         "item": {
+            "id": "gen-head-3",
+            "target": "health",
+            "targetVowelSpelling": "ea",
+            "targetVowelSound": "short-e",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "sled",
+                  "vowelSpelling": "e",
+                  "vowelSound": "short-e",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "heat",
+                  "vowelSpelling": "ea",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ea-three-sounds",
+                  "parentAdvice": "Your child needs to learn the three sounds that /ea/ can make. Give your child 3 index cards or divide a piece of paper in thirds write /ea/ at the top and the sound it equals (e.g., ea= E, ea= e, ea= A) Then your child will draw an image on the index card or in the correct column with a key picture that will help them remember all sounds."
+               },
+               {
+                  "word": "thief",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ie-two-sounds",
+                  "parentAdvice": "Your child needs to learn the two sounds that ie make and when they make them. Teach your child that ie says I when they are the last letters in a one syllable word. ie says E when it is inside or in the middle of a word. Write a few words on index cards and hide them around the room. Have your child look for each word and when they find them ask them to read the word. Ask them what are the two sounds that ie can say and once they answer ask them which sound is in this word and if they need help remind them of the rule. Practice with: Head, thief, heat"
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      },
+      {
+         "candidateId": "gen-grin-1",
+         "requestedMisconception": "ie-two-sounds",
+         "stage": "human-rejected",
+         "machine": {
+            "passed": true,
+            "failures": [],
+            "rulesFailed": [],
+            "warnings": []
+         },
+         "human": {
+            "decision": "rejected",
+            "reason": "no workable third distractor, cut",
+            "decidedAt": "2026-09-16T00:29:45.649Z"
+         },
+         "history": [],
+         "reviewerNotes": [],
+         "provisionalAdviceOn": [
+            "grief",
+            "dried"
+         ],
+         "item": {
+            "id": "gen-grin-1",
+            "target": "grin",
+            "targetVowelSpelling": "i",
+            "targetVowelSound": "short-i",
+            "audio": null,
+            "track": "decodable",
+            "source": "generated",
+            "options": [
+               {
+                  "word": "grief",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-e",
+                  "correct": false,
+                  "misconceptionId": "ie-two-sounds",
+                  "parentAdvice": "Your child needs to learn the two sounds that ie make and when they make them. Teach your child that ie says I when they are the last letters in a one syllable word. ie says E when it is inside or in the middle of a word. Write a few words on index cards and hide them around the room. Have your child look for each word and when they find them ask them to read the word. Ask them what are the two sounds that ie can say and once they answer ask them which sound is in this word and if they need help remind them of the rule.",
+                  "parentAdviceInherited": true
+               },
+               {
+                  "word": "gym",
+                  "vowelSpelling": "y",
+                  "vowelSound": "short-i",
+                  "correct": true,
+                  "misconceptionId": null,
+                  "parentAdvice": null
+               },
+               {
+                  "word": "dried",
+                  "vowelSpelling": "ie",
+                  "vowelSound": "long-i",
+                  "correct": false,
+                  "misconceptionId": "ie-two-sounds",
+                  "parentAdvice": "Your child needs to learn the two sounds that ie make and when they make them. Teach your child that ie says I when they are the last letters in a one syllable word. ie says E when it is inside or in the middle of a word. Write a few words on index cards and hide them around the room. Have your child look for each word and when they find them ask them to read the word. Ask them what are the two sounds that ie can say and once they answer ask them which sound is in this word and if they need help remind them of the rule.",
+                  "parentAdviceInherited": true
+               }
+            ]
+         },
+         "inCurrentCandidatesFile": true
+      }
+   ]
+}

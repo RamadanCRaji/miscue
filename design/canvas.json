@@ -1,0 +1,55 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Game screen"
+    },
+    {
+      "file": "Tapped.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "On tap"
+    },
+    {
+      "file": "Irregular.dc.html",
+      "x": 0,
+      "y": 1060,
+      "w": 1440,
+      "h": 900,
+      "title": "Irregular item"
+    },
+    {
+      "file": "Start.dc.html",
+      "x": 1560,
+      "y": 1060,
+      "w": 1440,
+      "h": 900,
+      "title": "Start"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-behaviour",
+      "x": -520,
+      "y": 0,
+      "w": 440,
+      "text": "Behaviour is CLAUDE.md's, not this document's.\n\nNo score, no timer, no streak. The tapped card gets the same gold highlight whichever it was, held 600ms, then auto-advance. Nothing on this screen ever says right or wrong.\n\nDESIGN.md's practice round (feedback on 2-3 warm-up items) is NOT drawn here: CLAUDE.md wins where the two touch, and it says the child is never told."
+    },
+    {
+      "id": "note-stars",
+      "x": -520,
+      "y": 380,
+      "w": 440,
+      "text": "One star per question, right or wrong. Stars sit beside the store so a child who cannot read the label still learns what they are for.\n\nThe star count IS the progress indicator - one star per item answered."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

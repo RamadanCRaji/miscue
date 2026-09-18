@@ -1,0 +1,741 @@
+/*
+ * Miscue, the child's screen. DESIGN.md governs how this looks; CLAUDE.md
+ * governs how it behaves, and wins where the two touch.
+ *
+ * The governing idea: the screen is a PLACE. The zoo fills the viewport and the
+ * question floats on top of it — full viewport, landscape, no scrolling, and
+ * never a centred column on a plain background.
+ *
+ * What no colour in here does, on any screen: encode right or wrong. All three
+ * cards are identical and the tapped highlight is a neutral gold, because there
+ * is no correct state and no incorrect state to design.
+ */
+
+:root {
+   /* Okabe-Ito (DESIGN.md section 7), colourblind-safe. The most saturated are
+      reserved for interactive elements so the eye lands on the word cards. */
+   --orange: #e69f00;
+   --orange-deep: #b57c00;
+   --sky-blue: #56b4e9;
+   --green: #009e73;
+   --green-deep: #007454;
+   --blue: #0072b2;
+   --blue-deep: #005084;
+
+   --ink: #22303a;
+   --ink-soft: #4a4038;
+   --paper: #fffdf6;
+   --paper-edge: #e0d2b6;
+
+   /* The only feedback a tap ever gets. Soft gold: not green, not red. */
+   --tapped: #f6e3a4;
+   --tapped-edge: #c9931f;
+   --tapped-shadow: #b07f12;
+
+   --reveal: 600ms; /* mirrors REVEAL_MS — section 9's pause */
+
+   /* Andika: single-storey a and g, the letterforms children are taught. A
+      correctness requirement in a reading app, not a style choice — so the
+      fallbacks are other primary-education faces before any system sans. */
+   --reading: "Andika", "Lexend", "Comic Neue", "Trebuchet MS", sans-serif;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+   height: 100%;
+}
+
+body {
+   margin: 0;
+   background: #9fd6ef;
+   color: var(--ink);
+   font-family: var(--reading);
+   -webkit-font-smoothing: antialiased;
+   -webkit-tap-highlight-color: transparent;
+   overflow: hidden; /* full viewport, no scrolling */
+}
+
+.screen {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+}
+
+/* -- the zoo, full-bleed behind everything -------------------------------- */
+
+.scene {
+   position: absolute;
+   inset: 0;
+   overflow: hidden;
+   /* One source pixel of the artwork, on screen: the scale that lets the
+      artwork proper (not the watermark band) cover the viewport. */
+   --art-unit: max(100vw / var(--art-w), 100vh / var(--art-h));
+}
+
+/*
+ * The painted backdrop. Sized from the artwork's own pixels rather than
+ * `background-size: cover`, so two things hold at every aspect ratio: the
+ * stock preview's watermark band is always exactly below the viewport, and the
+ * foreground ground line lands at a known distance above the bottom edge —
+ * which is what lets the pens stand on it.
+ */
+.scene__art {
+   position: absolute;
+   left: 50%;
+   bottom: calc(var(--art-unit) * (var(--art-h) - var(--art-file-h)));
+   width: calc(var(--art-unit) * var(--art-w));
+   height: calc(var(--art-unit) * var(--art-file-h));
+   transform: translateX(-50%);
+   background-size: 100% 100%;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+.scene__scrim {
+   position: absolute;
+   inset: 0;
+   background: rgb(16 38 52 / 18%);
+}
+
+.scene__pens {
+   position: absolute;
+   /* Feet on the foreground grass, ~20 artwork pixels up from the bottom. */
+   inset: auto 0 calc(var(--art-unit) * 20) 0;
+   display: flex;
+   align-items: flex-end;
+   justify-content: center;
+   gap: clamp(12px, 2.4vw, 40px);
+   padding: 0 clamp(12px, 3vw, 48px);
+}
+
+.pen {
+   position: relative;
+   width: clamp(220px, 23vw, 340px);
+   height: clamp(190px, 28vh, 280px);
+   display: flex;
+   align-items: flex-end;
+   justify-content: center;
+}
+
+/* Habitat ground sits behind the animal; the boundary in front of it. */
+.pen__ground {
+   position: absolute;
+   inset: auto 0 0 0;
+   width: 100%;
+   height: 100px;
+}
+
+.pen__yard {
+   position: absolute;
+   inset: auto 0 18px 0;
+   display: grid;
+   place-items: end center;
+}
+
+.pen__fence {
+   position: absolute;
+   inset: auto 0 6px 0;
+   width: 100%;
+   height: 64px;
+}
+
+.pen__sign {
+   position: absolute;
+   bottom: -6px;
+   left: 50%;
+   transform: translateX(-50%);
+   background: var(--paper);
+   border: 2px solid #c9a277;
+   border-radius: 8px;
+   padding: 3px 14px;
+   font-size: 0.95rem;
+   color: var(--ink);
+   white-space: nowrap;
+}
+
+.figure--ghost {
+   opacity: 0.22;
+}
+
+/* An animal walks into its pen when it is bought — the celebration moment.
+   It plays on mount, so only a newly earned animal ever animates. */
+.figure--live {
+   display: inline-block;
+   animation: walk-in 900ms cubic-bezier(0.22, 0.9, 0.3, 1) both;
+}
+
+.figure__body {
+   display: inline-block;
+   transform-origin: 50% 100%;
+}
+
+/*
+ * Idle life for an OWNED animal only: a slow sway from the feet and an
+ * occasional blink. Gentle by design — this is scenery, and nothing here may
+ * pull the eye from the word cards. Ghosts stay perfectly still, which is part
+ * of what makes them read as not-yet rather than as asleep.
+ */
+.figure--live .figure__body {
+   animation: sway 5.6s ease-in-out 1.2s infinite;
+}
+
+.figure--live .eye {
+   transform-box: fill-box;
+   transform-origin: center;
+   animation: blink 6.5s ease-in-out infinite;
+}
+
+/* Out of step with each other, or four animals nod in unison like a metronome. */
+.pen:nth-child(2) .figure__body { animation-delay: 2.3s; }
+.pen:nth-child(3) .figure__body { animation-delay: 0.4s; }
+.pen:nth-child(4) .figure__body { animation-delay: 3.1s; }
+.pen:nth-child(2) .eye { animation-delay: 1.7s; }
+.pen:nth-child(3) .eye { animation-delay: 3.9s; }
+.pen:nth-child(4) .eye { animation-delay: 0.8s; }
+
+@keyframes sway {
+   0%, 100% { transform: rotate(-1.3deg); }
+   50% { transform: rotate(1.3deg); }
+}
+
+@keyframes blink {
+   0%, 91%, 100% { transform: scaleY(1); }
+   94% { transform: scaleY(0.08); }
+   97% { transform: scaleY(1); }
+}
+
+@keyframes walk-in {
+   from {
+      transform: translateX(-70px);
+      opacity: 0;
+   }
+   to {
+      transform: translateX(0);
+      opacity: 1;
+   }
+}
+
+/* -- chrome: zookeeper left, stars and store right ------------------------ */
+
+.chrome {
+   position: absolute;
+   inset: clamp(14px, 2.4vh, 26px) clamp(16px, 2.2vw, 30px) auto;
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+   gap: 16px;
+   pointer-events: none;
+}
+
+.keeper,
+.wallet {
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   background: rgb(255 253 246 / 94%);
+   border: 3px solid var(--paper-edge);
+   border-radius: 26px;
+   box-shadow: 0 8px 20px rgb(24 48 60 / 16%);
+}
+
+.keeper {
+   padding: 8px 14px;
+}
+
+.wallet {
+   padding: 10px 20px;
+}
+
+.wallet__stars {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.wallet__count {
+   font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+   font-weight: 700;
+   color: var(--ink);
+   min-width: 1.2ch;
+   text-align: center;
+}
+
+.wallet__rule {
+   width: 3px;
+   height: 42px;
+   background: #eadfc8;
+   border-radius: 2px;
+}
+
+.store {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   /* Visible, never interactive. */
+   pointer-events: none;
+   user-select: none;
+}
+
+.store__next {
+   display: flex;
+   flex-direction: column;
+   gap: 2px;
+}
+
+.store__need {
+   font-size: 0.95rem;
+   color: #5b5147;
+   white-space: nowrap;
+}
+
+.store__target {
+   display: flex;
+   align-items: center;
+   gap: 6px;
+}
+
+.store__name {
+   font-size: 0.95rem;
+   font-weight: 700;
+   color: var(--ink);
+}
+
+/* -- the floating question panel ------------------------------------------ */
+
+.panel {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   bottom: clamp(230px, 33vh, 330px);
+   width: clamp(340px, 66vw, 1040px);
+   background: rgb(255 253 246 / 97%);
+   border: 4px solid var(--paper-edge);
+   border-radius: 34px;
+   padding: clamp(18px, 2.6vh, 30px) clamp(20px, 2.4vw, 36px);
+   box-shadow: 0 26px 60px rgb(18 38 50 / 30%);
+}
+
+.panel--start,
+.panel--done {
+   bottom: auto;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: clamp(14px, 2.4vh, 24px);
+   width: clamp(320px, 52vw, 720px);
+   text-align: center;
+}
+
+.start-line {
+   margin: 0;
+   font-size: clamp(1.3rem, 2.1vw, 1.7rem);
+   line-height: 1.4;
+   color: var(--ink-soft);
+}
+
+.start-button {
+   font-family: inherit;
+   font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+   font-weight: 700;
+   letter-spacing: 1px;
+   padding: 0 clamp(48px, 7vw, 90px);
+   border: none;
+   border-radius: 999px;
+   background: var(--green);
+   color: var(--paper);
+   box-shadow: 0 7px 0 var(--green-deep);
+   cursor: pointer;
+}
+
+/* The one control on the completion screen. Wide, so it is unmissable. */
+.grown-up {
+   font-size: clamp(1.4rem, 2.3vw, 2rem);
+   letter-spacing: 0.4px;
+   padding: 0 clamp(40px, 5vw, 64px);
+}
+
+.start-button:active {
+   transform: translateY(4px);
+   box-shadow: 0 3px 0 var(--green-deep);
+}
+
+/* The speaker leads the line, so a child learns to tap it to hear the question. */
+.ask {
+   display: flex;
+   align-items: center;
+   gap: clamp(14px, 1.6vw, 22px);
+   margin-bottom: clamp(16px, 2.4vh, 26px);
+}
+
+.replay {
+   position: relative;
+   flex: 0 0 auto;
+   display: grid;
+   place-items: center;
+   width: 84px;
+   height: 84px;
+   border: none;
+   border-radius: 50%;
+   background: var(--orange);
+   box-shadow: 0 6px 0 var(--orange-deep);
+   cursor: pointer;
+   padding: 0;
+}
+
+/* Pulses gently on load, then settles — an invitation, not an alarm. */
+.replay::after {
+   content: "";
+   position: absolute;
+   inset: -10px;
+   border-radius: 50%;
+   border: 4px solid var(--orange);
+   opacity: 0;
+   animation: pulse 1.8s ease-out 3;
+}
+
+@keyframes pulse {
+   0% {
+      transform: scale(0.92);
+      opacity: 0.55;
+   }
+   70% {
+      transform: scale(1.15);
+      opacity: 0;
+   }
+   100% {
+      opacity: 0;
+   }
+}
+
+.replay:active {
+   transform: translateY(3px);
+   box-shadow: 0 3px 0 var(--orange-deep);
+}
+
+.stem {
+   margin: 0;
+   font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+   font-weight: 400;
+   line-height: 1.4;
+   letter-spacing: 0.2px;
+   color: var(--ink-soft);
+   text-wrap: pretty;
+}
+
+/* Bold, and sized in line with the sentence rather than towering over it. */
+.stem__target {
+   font-weight: 700;
+   font-size: 1.3em;
+   color: var(--ink);
+}
+
+/* The irregular target is spoken, never shown. This is the blank it leaves. */
+.stem__blank {
+   display: inline-block;
+   width: clamp(88px, 9vw, 150px);
+   border-bottom: 6px solid var(--blue);
+   vertical-align: baseline;
+}
+
+.options {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   gap: clamp(16px, 1.6vw, 22px);
+}
+
+.options li {
+   flex: 1 1 0;
+   display: flex;
+}
+
+.option {
+   font-family: inherit;
+   font-size: clamp(1.5rem, 2.3vw, 2.15rem);
+   font-weight: 700;
+   letter-spacing: 0.5px;
+   width: 100%;
+   /* min-height is set inline from CARD_MIN_HEIGHT_PX — the floor lives in one
+      place in the code, not duplicated here. This padding is the comfortable
+      size; the inline value is the guarantee. */
+   padding: clamp(12px, 1.8vh, 20px) 18px;
+   /* The card is near-white on purpose: decoding the word IS the measurement,
+      so the word keeps maximum contrast and the saturated colour goes on the
+      border, which is what makes the eye land here. */
+   background: var(--paper);
+   color: var(--ink);
+   border: 4px solid var(--blue);
+   border-radius: 22px;
+   box-shadow: 0 6px 0 var(--blue-deep);
+   cursor: pointer;
+   transition: background-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+}
+
+.option:disabled {
+   cursor: default;
+}
+
+/* The only feedback a tap ever gets, and it is the same for all three cards. */
+.option--tapped {
+   background: var(--tapped);
+   border-color: var(--tapped-edge);
+   transform: translateY(4px);
+   box-shadow: 0 2px 0 var(--tapped-shadow);
+}
+
+/* -- the reward layer ----------------------------------------------------- */
+
+/*
+ * A star leaves the tapped card and flies to the counter on EVERY tap. All the
+ * delight lives here rather than in the answer, because none of it is tied to
+ * being right.
+ */
+.star-flight {
+   position: fixed;
+   left: 50%;
+   top: 62%;
+   pointer-events: none;
+   animation: fly var(--reveal) cubic-bezier(0.4, 0, 0.5, 1) forwards;
+}
+
+@keyframes fly {
+   0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+   }
+   70% {
+      opacity: 1;
+   }
+   100% {
+      transform: translate(var(--dx), var(--dy)) scale(0.45);
+      opacity: 0;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .option,
+   .figure--live,
+   .figure__body,
+   .eye,
+   .replay::after,
+   .star-flight {
+      transition: none;
+      animation: none;
+   }
+}
+
+/* =========================================================================
+ * The parent screen. CLAUDE.md section 9, DESIGN.md section 10.
+ *
+ * Calmer than the child screen and sharing its palette, but none of its
+ * furniture: no zoo, no zookeeper, no reward layer. A measure-width column an
+ * adult reads once, probably on a phone.
+ *
+ * Findings and strengths are never told apart by colour alone — each carries an
+ * icon and a worded label, and the type does the rest.
+ * ====================================================================== */
+
+.parent {
+   position: absolute;
+   inset: 0;
+   overflow-y: auto;
+   background: #faf5ec;
+   color: var(--ink);
+}
+
+.parent__column {
+   max-width: 34rem;
+   margin: 0 auto;
+   padding: clamp(28px, 6vh, 56px) clamp(20px, 5vw, 32px) clamp(48px, 10vh, 88px);
+   display: flex;
+   flex-direction: column;
+   gap: clamp(26px, 4.5vh, 40px);
+}
+
+.parent__intro {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+
+.eyebrow {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   margin: 0;
+   font-size: 0.86rem;
+   font-weight: 700;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+   color: #7a6f61;
+}
+
+.eyebrow--quiet {
+   color: #8a8073;
+}
+
+.icon {
+   flex: 0 0 auto;
+}
+
+/* Warm, plain, and deliberately without a numeral — a number on this screen
+   reads as a measurement, which is the thing it exists to avoid. */
+.parent__framing {
+   margin: 0;
+   font-size: 1.24rem;
+   line-height: 1.5;
+   color: #5d5346;
+   text-wrap: pretty;
+}
+
+.block {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   padding-top: clamp(18px, 3vh, 24px);
+   border-top: 2px solid #ece2d1;
+}
+
+/* The strength that comes before the finding carries no rule above it: it is
+   the first thing after the framing line, not a section break. */
+.block--lead {
+   padding-top: 0;
+   border-top: none;
+}
+
+/* The irregular track sits apart from the misconceptions, never under their
+   heading (DESIGN.md 10.7), and carries no severity mark of any kind. */
+.block--aside {
+   gap: 10px;
+}
+
+.headline {
+   margin: 0;
+   font-size: 1.42rem;
+   font-weight: 700;
+   line-height: 1.32;
+   color: var(--ink);
+   text-wrap: pretty;
+}
+
+.finding {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.evidence {
+   margin: 0;
+   font-size: 1.04rem;
+   line-height: 1.55;
+   color: #5d5346;
+   text-wrap: pretty;
+}
+
+.activity {
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+   padding: clamp(16px, 2.6vh, 22px) clamp(16px, 4vw, 22px);
+   background: var(--paper);
+   border: 2px solid #ece2d1;
+   border-radius: 14px;
+}
+
+.activity__label {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+   gap: 12px;
+   margin: 0;
+   font-size: 0.86rem;
+   font-weight: 700;
+   letter-spacing: 0.06em;
+   text-transform: uppercase;
+   color: #7a6f61;
+}
+
+/* Naming the time is what makes an activity feel doable tonight. */
+.activity__time {
+   font-weight: 400;
+   letter-spacing: 0;
+   text-transform: none;
+   font-size: 0.95rem;
+   color: #6f6355;
+   white-space: nowrap;
+}
+
+.activity__text {
+   margin: 0;
+   font-size: 1.04rem;
+   line-height: 1.62;
+   color: var(--ink);
+   white-space: pre-line;
+   text-wrap: pretty;
+}
+
+/* Present, but quieter than the findings. */
+.block--quiet {
+   gap: 10px;
+}
+
+.strengths {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+/*
+ * A tick and a worded label — never a coloured dot against another coloured
+ * dot (DESIGN.md 10.9). Strip every colour from this page and a finding is
+ * still told apart from a strength by its shape and its heading.
+ */
+.strength {
+   display: flex;
+   align-items: flex-start;
+   gap: 10px;
+   margin: 0;
+   font-size: 1rem;
+   line-height: 1.5;
+   color: #5d5346;
+   text-wrap: pretty;
+}
+
+.strength .icon {
+   margin-top: 0.18em;
+}
+
+.strength--lead {
+   font-size: 1.12rem;
+   color: var(--ink);
+}
+
+.parent__again {
+   align-self: flex-start;
+   font-family: inherit;
+   font-size: 1rem;
+   font-weight: 700;
+   min-height: 52px;
+   padding: 0 26px;
+   border: 2px solid #d9cbb4;
+   border-radius: 999px;
+   background: transparent;
+   color: #5d5346;
+   cursor: pointer;
+}
+
+.parent__again:hover {
+   background: var(--paper);
+}

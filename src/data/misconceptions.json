@@ -1,0 +1,37 @@
+[
+   {
+      "id": "closed-syllable",
+      "label": "Does not have an understanding of closed syllables.",
+      "strengthLabel": "Understands and recognizes what a closed syllable is.",
+      "teacherNote": "defaults to short vowel; has not mastered the condition",
+      "track": "decodable"
+   },
+   {
+      "id": "vowel-team-assumed",
+      "label": "Guesses a vowel team's sound from its letters.",
+      "strengthLabel": "Uses knowledge of vowel teams to identify their sounds.",
+      "teacherNote": "assumes a vowel team's sound from its letters",
+      "track": "decodable"
+   },
+   {
+      "id": "ea-three-sounds",
+      "label": "Doesn't know that ea makes three different sounds.",
+      "strengthLabel": "Recognizes that ea can represent three different sounds.",
+      "teacherNote": "does not know `ea` makes three different sounds",
+      "track": "decodable"
+   },
+   {
+      "id": "irregular-word",
+      "label": "Hasn't memorized words that can't be sounded out.",
+      "strengthLabel": "Recognizes that some words cannot be fully decoded and must be memorized.",
+      "teacherNote": "has not memorized a word that cannot be decoded",
+      "track": "irregular"
+   },
+   {
+      "id": "ie-two-sounds",
+      "label": "Doesn't know that ie makes two different sounds.",
+      "strengthLabel": "Recognizes that ie can make two sounds.",
+      "teacherNote": "",
+      "track": "decodable"
+   }
+]

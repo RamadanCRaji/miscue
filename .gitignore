@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+*.local
+.env
+
+# Seeded design-canvas outputs. Multi-MB generated files (each embeds ~2MB of
+# minified editor code) and fully regenerable from the .dc.html sources beside
+# them, which ARE tracked. Note the negation: a bare `design/*.html` would
+# swallow the sources too, since they also end in .html.
+design/**/*.html
+!design/**/*.dc.html

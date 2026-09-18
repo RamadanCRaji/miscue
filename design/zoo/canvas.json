@@ -1,0 +1,62 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Game screen, mid-session"
+    },
+    {
+      "file": "Animals.dc.html",
+      "x": 0,
+      "y": 1040,
+      "w": 1560,
+      "h": 720,
+      "title": "The six animals"
+    },
+    {
+      "file": "Habitats.dc.html",
+      "x": 0,
+      "y": 1900,
+      "w": 1560,
+      "h": 800,
+      "title": "The four pens"
+    },
+    {
+      "file": "Completion.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Completion \u2014 the way out"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-source",
+      "x": 1540,
+      "y": 0,
+      "w": 380,
+      "text": "Backdrop: the zoo-entrance image with the app's exact crop \u2014 the stock preview's watermark band is held below the frame. It is a VectorStock PREVIEW; the submission needs the licensed export.\n\nEvery drawing here is lifted from src/components/animals.tsx as shipped \u2014 same paths, same sizes (220px owned, 170px silhouette), same 22% ghost opacity.\n\nOwned animals sway and blink on this canvas exactly as in the app. Nothing responds to an answer; the tapped card still gets only the neutral gold."
+    },
+    {
+      "id": "note-completion",
+      "x": 3080,
+      "y": 0,
+      "w": 380,
+      "text": "Between the game and the parent screen. The child is still holding the device, and the parent screen names a reading difficulty \u2014 so the session ends HERE, in the child's zoo, and the parent screen is reached only by tapping Show a grown-up.\n\nNothing evaluative: no score, no count, no price tags on the empty pens. Same two lines whether the child got everything right or everything wrong."
+    },
+    {
+      "id": "note-habitats",
+      "x": 1640,
+      "y": 1900,
+      "w": 340,
+      "text": "Habitats are assigned by animal (lion \u2192 grass, elephant \u2192 water, giraffe \u2192 trees, penguin \u2192 rock). Ground sits behind the animal, the boundary in front."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}
