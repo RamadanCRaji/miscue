@@ -1,0 +1,17 @@
+{
+   // What `npm run build` typechecks: the application source only.
+   //
+   // The full `tsconfig.json` also covers `scripts/` and `vite.config.ts`, which
+   // import Node built-ins (`node:fs`, `node:path`) and so need `@types/node`.
+   // That package is not a dependency of this project — it only resolves on a
+   // machine that happens to have it installed further up the directory tree —
+   // so a clean CI install has no Node typings and the build fails on files the
+   // deployed app never contains.
+   //
+   // Scoping the build to `src` (minus tests) fixes that at the root: nothing in
+   // the shipped bundle imports a Node built-in, so the build cannot depend on
+   // typings for one. `npm run typecheck` and `npm test` still cover everything.
+   "extends": "./tsconfig.json",
+   "include": ["src"],
+   "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"]
+}
