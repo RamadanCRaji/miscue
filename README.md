@@ -2,6 +2,12 @@
 
 A reading diagnostic for early readers, grades 1 through 3.
 
+<p align="center">
+  <img src="docs/game_screen.png"
+       alt="The child's screen: a full-bleed zoo with the zookeeper, a panel reading 'Your zoo is empty. Answer questions to fill it up.', and a Start button."
+       width="820">
+</p>
+
 Miscue started from watching a close friend work. She teaches early reading,
 and what stood out was not that she could tell which children were behind.
 It was that she could tell exactly which rule each child was misapplying, and
@@ -50,10 +56,18 @@ whether they got an answer right. That is deliberate: the moment a child
 knows they are being scored, they start guessing safe, and the app stops
 learning anything true about how they actually read.
 
+<img src="docs/completetion-screen.png"
+     alt="The completion screen: the child's zoo with the animals they earned, 'Thanks for helping at the zoo today!' and a 'Show a grown-up' button."
+     width="560">
+
 **The parent** gets a different screen entirely. Not a score. A sentence
 naming the specific pattern their child is running, in plain language, with
 one five-minute activity to try at home. If nothing confirms, the app says so
 plainly and treats that as a real result, not a failure.
+
+<img src="docs/parent-screen.png"
+     alt="The parent screen: a named finding, the words the child actually chose as evidence, and one five-minute activity in the teacher's words."
+     width="330">
 
 **The teacher** is the actual source of the product. Every question, every
 wrong answer, and every home activity in this bank was written by a
